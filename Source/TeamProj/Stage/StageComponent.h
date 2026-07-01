@@ -25,7 +25,7 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Stage")
 	FCharInfo PlayerInfo{};
-	UPROPERTY(BlueprintReadWrite, Category = "Stage")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Data")
 	UDataTable* StageTable{};
 	UPROPERTY(BlueprintReadWrite, Category = "Stage")
 	TArray<FVector> PortalPos;

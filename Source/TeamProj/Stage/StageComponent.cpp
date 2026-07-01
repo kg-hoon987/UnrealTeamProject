@@ -34,7 +34,7 @@ void UStageComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 void UStageComponent::Init(EStageID StageId)
 {
 	
-	StageTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/Data/Stage/DT_Stage.DT_Stage"));
+	//StageTable = LoadObject<UDataTable>(nullptr, TEXT("/Game/Data/Stage/DT_Stage.DT_Stage"));
 	if (!StageTable) return;
 
 	FName RowName;

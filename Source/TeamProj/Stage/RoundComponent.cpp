@@ -105,7 +105,6 @@ void URoundComponent::SetState(ERoundState state)
 		{
 			if (AMyGamePlayerState* MyPS = Cast<AMyGamePlayerState>(Pawn->GetPlayerState()))
 			{
-				UStageComponent* stageCom = Cast<UStageComponent>(MyPS->StageCom);
 				if (RoundNum != 1)
 				{
 					Cast<AMyGameController>(Pawn->GetController())->ToggleDayNight();
@@ -170,7 +169,7 @@ void URoundComponent::SetState(ERoundState state)
 			}
 		}
 		RoundNum++;
-		Cast<UStageComponent>(GetOwner()->FindComponentByClass(UStageComponent::StaticClass()))->SetRound();
+		CachedStageComp->SetRound();
 		break;
 	}
 	default:
@@ -231,6 +230,7 @@ void URoundComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	CachedStageComp = GetOwner()->FindComponentByClass<UStageComponent>();
 	// 라운드 받아오기
 	// 그거로 인잇
 }

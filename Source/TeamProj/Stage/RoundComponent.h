@@ -8,6 +8,7 @@
 #include "Blueprint/UserWidget.h"
 #include "RoundComponent.generated.h"
 
+class UStageComponent;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRoundStart);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRoundEnd);
@@ -71,6 +72,9 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+	UPROPERTY()
+	UStageComponent* CachedStageComp;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TSubclassOf<UUserWidget> RoundStartUI{};
